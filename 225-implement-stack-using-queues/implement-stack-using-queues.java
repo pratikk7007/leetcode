@@ -1,36 +1,27 @@
-import java.util.LinkedList;
-import java.util.Queue;
-
 class MyStack {
-    private Queue<Integer> queue1;
-    private Queue<Integer> queue2;
+      Queue < Integer > q;
 
     public MyStack() {
-        queue1 = new LinkedList<>();
-        queue2 = new LinkedList<>();
+         q = new LinkedList < > ();
     }
-
+    
     public void push(int x) {
-        queue2.add(x);
-        while (!queue1.isEmpty()) {
-            queue2.add(queue1.remove());
+        q.add(x);
+        for (int i = 0; i < q.size() - 1; i++) {
+            q.add(q.remove());
         }
-        // Swap the queues
-        Queue<Integer> temp = queue1;
-        queue1 = queue2;
-        queue2 = temp;
     }
-
+    
     public int pop() {
-        return queue1.isEmpty() ? -1 : queue1.remove();
+        return q.remove();
     }
-
+    
     public int top() {
-        return queue1.isEmpty() ? -1 : queue1.peek();
+         return q.peek();
     }
-
+    
     public boolean empty() {
-        return queue1.isEmpty();
+        return q.size()==0;
     }
 }
 
@@ -41,4 +32,4 @@ class MyStack {
  * int param_2 = obj.pop();
  * int param_3 = obj.top();
  * boolean param_4 = obj.empty();
- */
+ */
