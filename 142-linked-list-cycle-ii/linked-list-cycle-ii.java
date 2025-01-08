@@ -12,7 +12,6 @@
 public class Solution {
     public ListNode detectCycle(ListNode head) {
          ListNode temp=head;
-        int pos=-1;
         HashMap<ListNode,Integer> map=new HashMap<>();
 
         while(temp!=null){
@@ -20,8 +19,8 @@ public class Solution {
             if(map.containsKey(temp)){
                 return temp;
             }else{
-                pos++;
-                map.put(temp,pos);
+                
+                map.put(temp,1);
             }
             temp=temp.next;
         }
