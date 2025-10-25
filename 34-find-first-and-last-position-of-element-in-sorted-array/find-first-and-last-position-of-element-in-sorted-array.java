@@ -2,6 +2,7 @@ class Solution {
     public int[] searchRange(int[] nums, int target) {
 
         int arr[]={-1,-1};
+
         int first=-1;
         int last=-1;
 
